@@ -1,1 +1,23 @@
-<p>heroe works!</p>
+<h1> {{ heroe.nombre | uppercase }} <small>(Fecha aparicion: {{ heroe.aparicion | date: 'fullDate' }})</small></h1>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <img [src]="heroe.img" [alt]="heroe.bio" class="img-fluid">
+        <br><br>
+        <a href="/heroes" class="btn btn-outline-danger btn-block">Regresar</a>
+    </div>
+    <div class="col-md-8">
+        <h3>{{ heroe.nombre }}</h3>
+        <hr>
+        <p>
+            {{ heroe.bio }}
+        </p>
+        <h5>Casa:</h5>
+        <div *ngIf="heroe.casa == 'Marvel'; else elseBlock">
+            <img src="../../../assets/images/Marvel_logo.jpg" width="450px" height="200px" alt="Logo de Marvel">
+        </div>
+        <ng-template #elseBlock>
+            <img src="../../../assets/images/DC_logo.jpg" width="450px" height="200px" alt="Logo de DC Comics">
+        </ng-template>
+    </div>
+</div>
